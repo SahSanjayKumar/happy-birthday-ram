@@ -122,12 +122,12 @@ img {
 }
 
 .cake {
-    transform: translateY(-50%);
     transform: translateX(-50%);
     left: 50%;
     padding-top: 250px;
     position: absolute; 
 }
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -266,4 +266,81 @@ img {
 .container23 {
     text-align: center;
     color: #19f357;
+}
+
+/* ==================== MOBILE FIXES ==================== */
+
+@media (max-width: 768px) {
+    /* Cake: move below content instead of overlapping */
+    .cake {
+        position: relative;
+        left: auto;
+        transform: none;
+        padding-top: 30px;
+        margin: 0 auto;
+    }
+    
+    .cake img {
+        max-width: 200px;
+    }
+    
+    /* Images: stack vertically instead of side-by-side */
+    .image-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .image-container img:nth-child(2) {
+        left: auto !important;
+    }
+    
+    /* Hide center glow on small screens */
+    .image-container::before {
+        display: none;
+    }
+    
+    /* Smaller text */
+    .area {
+        font-size: 45px;
+        letter-spacing: -3px;
+    }
+    
+    .type-wrap {
+        font-size: 20px;
+    }
+    
+    /* Bigger button for thumbs */
+    .loader button {
+        width: 80%;
+        height: 80px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small phones */
+    .area {
+        font-size: 36px;
+    }
+    
+    .type-wrap {
+        font-size: 17px;
+    }
+    
+    .image-container img {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .loader button {
+        font-size: 28px;
+        height: 70px;
+    }
+    
+    .container23 {
+        font-size: 14px;
+        padding: 0 10px;
+    }
 }
